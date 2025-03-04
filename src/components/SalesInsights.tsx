@@ -1,8 +1,6 @@
 import {
   BarChart,
   Bar,
-  PieChart,
-  Pie,
   Cell,
   ResponsiveContainer,
   XAxis,
@@ -36,15 +34,6 @@ const platformData: ChartData[] = [
   { name: "Retail", value: 15, fill: "#10B981" },
   { name: "Other", value: 8, fill: "#DFFF00" },
 ];
-
-const productData: ChartData[] = [
-  { name: "Perfect Light Blockage", value: 40, fill: "#7C3AED" },
-  { name: "Cooling Gel", value: 30, fill: "#3B82F6" },
-  { name: "Weighted Calm", value: 20, fill: "#DFFF00" },
-  { name: "Hypoallergenic", value: 10, fill: "#10B981" },
-];
-
-const COLORS = ["#7C3AED", "#3B82F6", "#DFFF00", "#10B981"];
 
 const CustomTooltip: React.FC<TooltipProps> = ({ active, payload }) => {
   if (active && payload && payload.length) {
@@ -158,39 +147,6 @@ const SalesInsights: React.FC = () => {
                   }
                 />
               </BarChart>
-            </ResponsiveContainer>
-          </div>
-        </div>
-
-        <div className="bg-white p-5 rounded-xl shadow-md border border-gray-100">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">
-            Sales by Product
-          </h3>
-          <div className="h-64">
-            <ResponsiveContainer width="100%" height="100%">
-              <PieChart>
-                <Pie
-                  data={productData}
-                  cx="50%"
-                  cy="50%"
-                  labelLine={false}
-                  outerRadius={80}
-                  dataKey="value"
-                >
-                  {productData.map((entry, index) => (
-                    <Cell
-                      key={`cell-${index}`}
-                      fill={COLORS[index % COLORS.length]}
-                    />
-                  ))}
-                </Pie>
-                <Tooltip content={<CustomTooltip />} />
-                <Legend
-                  layout="horizontal"
-                  verticalAlign="bottom"
-                  align="center"
-                />
-              </PieChart>
             </ResponsiveContainer>
           </div>
         </div>
